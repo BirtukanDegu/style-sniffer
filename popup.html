@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Analyzer Lite</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Style Sniffer</h1>
+            <p id="pageTitle" class="page-title">Loading page title...</p>
+        </header>
+
+        <div id="loading" class="loading-indicator">
+            <div class="spinner"></div>
+            <p>Analyzing page...</p>
+        </div>
+
+        <div id="results" class="results-grid" style="display: none;">
+            <section class="card">
+                <h2><span class="icon">🎨</span>Font Colors</h2>
+                <ul id="fontColorsList" class="data-list"></ul>
+            </section>
+
+            <section class="card">
+                <h2><span class="icon">🖼️</span>Background Colors</h2>
+                <ul id="backgroundColorsList" class="data-list"></ul>
+            </section>
+
+            <section class="card card-full-width"> 
+                <h2><span class="icon">✒️</span>Font Families</h2>
+                <ul id="fontFamiliesList" class="data-list"></ul>
+            </section>
+        </div>
+
+         <div id="error" class="error-message" style="display: none;">
+            <p>Could not analyze this page. This might be due to browser restrictions or if the page content is not accessible.</p>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

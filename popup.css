@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --bg-color: #1e1e2f;
+    --card-bg: #27293d;
+    --primary-accent: #A466FF;
+    --secondary-accent: #ff79c6;
+    --text-color: #fef8dd;
+    --border-color: #44475a;
+    --font-family: 'Raleway', sans-serif;
+    --font-title: 'Raleway', sans-serif;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --border-radius: 4px;
+    --success-color: #50fa7b;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    width: 480px;
+    min-height: 250px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+header {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+header h1 {
+    font-family: var(--font-title);
+    font-size: 1.8em; 
+    margin: 0;
+    color: var(--primary-accent);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 18px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 18px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.card.card-full-width {
+    grid-column: 1 / -1;
+}
+
+.card h2 {
+    font-size: 1.2em; 
+    font-family: var(--font-title);
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.card h2 .icon {
+    margin-right: 10px;
+    font-size: 1.1em; 
+    color: var(--primary-accent);
+}
+
+.data-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 150px; 
+}
+
+.data-list::-webkit-scrollbar {
+    width: 2px;
+}
+.data-list::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 2px;
+}
+.data-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+}
+.data-list::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-accent);
+}
+
+.data-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5px 8px 0;
+    border-bottom: 1px dashed #3a3c50;
+    gap: 10px;
+}
+
+.data-list li:last-child {
+    border-bottom: none;
+}
+
+.data-list .value-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.data-list .value-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.color-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.copy-button {
+    background-color: transparent;
+    color: var(--primary-accent);
+    border: none;
+    padding: 5px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.copy-button:hover {
+    scale: 1.05;
+    transform: translateY(-1px);
+}
+
+.copy-button.copied {
+    color: var(--success-color);
+    scale: 1.05;
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--primary-accent);
+}
+
+.spinner {
+    border: 5px solid rgba(255, 255, 255, 0.15);
+    border-left-color: var(--secondary-accent);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-indicator p {
+    font-size: 1.15em;
+}
+
+.error-message {
+    background-color: #4d2833;
+    color: #ffb3c1;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid #c53030;
+    font-size: 1.05em;
+}
